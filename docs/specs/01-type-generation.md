@@ -3,21 +3,30 @@
 **Status:** Implemented
 **Last updated:** 2026-06-30
 **Plan:** [`docs/plans/01-type-generation.md`](../plans/01-type-generation.md)
-**Related ADRs:** [ADR-001](../decisions/ADR-001-build-time-codegen-committed-artifacts.md)
+**Related ADRs:** [ADR-001](../decisions/ADR-001-build-time-codegen-committed-artifacts.md),
+[ADR-002](../decisions/ADR-002-struct-literal-api-over-pipe-setters.md)
+
+> **Note (superseded API):** The "EEx Template Structure" and "Runtime
+> Serialisation" sections below describe the original per-property *pipe-setter*
+> API. Per [ADR-002](../decisions/ADR-002-struct-literal-api-over-pipe-setters.md),
+> the setters were removed for performance (312 MB → 20 MB BEAM); building is now
+> via struct literals (`%SchemaOrg.Product{name: "X"}`). The generation,
+> inheritance, and serialisation *logic* is unchanged — only the generated
+> per-property setter functions are gone.
 
 ---
 
 ## Objective
 
-Generate, from the official Schema.org JSON-LD vocabulary, a strictly-typed and
-pipe-friendly Elixir API for building SEO structured data. The deliverable is:
+Generate, from the official Schema.org JSON-LD vocabulary, a strictly-typed
+Elixir API for building SEO structured data. The deliverable is:
 
 - A **maintainer-only** Mix task `mix schema_org.build_types` that ingests the
   vendored `priv/schemaorg-current-https.jsonld` graph and writes one Elixir
   module per Schema.org Class into `lib/schema_org/types/`.
-- **800+ generated struct modules** (`SchemaOrg.Product`, `SchemaOrg.Offer`, …),
-  each with a `new/0` constructor and one immutable, pipe-friendly setter per
-  valid property.
+- **1000+ generated struct modules** (`SchemaOrg.Product`, `SchemaOrg.Offer`, …),
+  each a plain struct with one field per valid property plus a `new/0`
+  constructor. Built with struct literals (see ADR-002).
 - A hand-written runtime serialiser `SchemaOrg.to_json_ld/1` that turns any such
   struct (recursively) into `@context`/`@type`-annotated JSON-LD.
 

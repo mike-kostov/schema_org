@@ -41,9 +41,9 @@ defmodule SchemaOrg.MixProject do
   end
 
   defp description do
-    "Strictly-typed, pipe-friendly builder for generating SEO Schema.org JSON-LD " <>
-      "in Elixir and Phoenix applications. 800+ generated struct modules with typed " <>
-      "setter functions for first-class editor auto-complete."
+    "Strictly-typed builder for generating SEO Schema.org JSON-LD in Elixir and " <>
+      "Phoenix applications. 1000+ generated struct modules — build with struct " <>
+      "literals for first-class editor auto-complete and compile-time field checks."
   end
 
   defp package do

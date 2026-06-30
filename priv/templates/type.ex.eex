@@ -10,9 +10,4 @@ defmodule SchemaOrg.<%= module_name %> do
 
   @doc "Builds an empty `SchemaOrg.<%= module_name %>` struct."
   def new, do: %__MODULE__{}
-<%= for p <- properties do %>
-  @doc <%= inspect(p.doc, printable_limit: :infinity) %>
-  def <%= p.func %>(%__MODULE__{} = thing, value) do
-    %{thing | <%= p.func %>: value}
-  end
-<% end %>end
+end

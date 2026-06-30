@@ -1,11 +1,13 @@
 # SchemaOrg
 
-A strictly-typed, pipe-friendly builder for generating SEO Schema.org JSON-LD in
+A strictly-typed builder for generating SEO Schema.org JSON-LD in
 Elixir and Phoenix applications. Two layers:
 
-- **Generated types** (`lib/schema_org/types/`) — 800+ struct modules, one per
-  Schema.org Class, each with typed pipe-friendly setter functions. Produced by a
-  code-generation Mix task; **never hand-edited**.
+- **Generated types** (`lib/schema_org/types/`) — 1000+ struct modules, one per
+  Schema.org Class. Each is a plain struct (one field per valid property, direct
+  and inherited) plus `new/0`; build with struct literals. Produced by a
+  code-generation Mix task; **never hand-edited**. Per ADR-002 there are no
+  per-property setter functions — see `docs/decisions/`.
 - **Runtime API** (`lib/schema_org.ex`) — hand-written serialisation
   (`to_json_ld/1`) and shared helpers.
 

@@ -1,22 +1,27 @@
 defmodule SchemaOrg do
   @moduledoc """
-  Strictly-typed, pipe-friendly builder for Schema.org JSON-LD.
+  Strictly-typed builder for Schema.org JSON-LD.
 
   Each Schema.org Class is a generated struct module under `SchemaOrg.*`
-  (e.g. `SchemaOrg.Product`, `SchemaOrg.Offer`) with a `new/0` constructor and
-  one immutable setter per valid property. Build a graph with the pipe operator,
-  then serialise it with `to_json_ld/1`.
+  (e.g. `SchemaOrg.Product`, `SchemaOrg.Offer`). Build a graph with ordinary
+  struct literals — your editor auto-completes the valid fields and the compiler
+  rejects the rest — then serialise it with `to_json_ld/1`.
 
-      iex> import SchemaOrg
-      iex> Product.new()
-      ...> |> Product.name("MacBook Pro")
-      ...> |> Product.offers(Offer.new() |> Offer.price(1999.0))
-      ...> |> to_map()
-      %{
-        "@type" => "Product",
-        "name" => "MacBook Pro",
-        "offers" => %{"@type" => "Offer", "price" => 1999.0}
+      %SchemaOrg.Product{
+        name: "MacBook Pro",
+        offers: %SchemaOrg.Offer{price: 1999.0}
       }
+      |> SchemaOrg.to_map()
+      #=> %{
+      #     "@type" => "Product",
+      #     "name" => "MacBook Pro",
+      #     "offers" => %{"@type" => "Offer", "price" => 1999.0}
+      #   }
+
+  A property field is untyped, so it accepts Schema.org's loose value model
+  directly: a scalar or a nested struct (`brand: "Apple"` or
+  `brand: %SchemaOrg.Brand{}`), and a single value or a list
+  (`offers: %SchemaOrg.Offer{}` or `offers: [%SchemaOrg.Offer{}, ...]`).
   """
 
   @context "https://schema.org"

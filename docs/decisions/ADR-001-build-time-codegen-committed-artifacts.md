@@ -11,8 +11,8 @@ Accepted
 The Schema.org vocabulary is distributed as a single ~5 MB JSON-LD file
 (`schemaorg-current-https.jsonld`) describing ~1000 Classes and their
 properties. We want to expose this vocabulary to Elixir developers as a
-strictly-typed, pipe-friendly API where editor auto-complete reveals exactly
-which properties a type accepts and the compiler rejects the rest.
+strictly-typed API where editor auto-complete reveals exactly which properties a
+type accepts and the compiler rejects the rest.
 
 There are three plausible ways to turn the vocabulary into that API:
 

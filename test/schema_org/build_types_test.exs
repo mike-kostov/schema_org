@@ -128,17 +128,19 @@ defmodule Mix.Tasks.SchemaOrg.BuildTypesTest do
       %{template: template, product: Enum.find(specs, &(&1.module_name == "Product"))}
     end
 
-    test "emits the expected struct, constructor and one setter per property",
+    test "emits a plain struct (no setters), constructor and the runtime metadata",
          %{template: template, product: product} do
       source = Build.render_module(template, product)
 
       assert source =~ "defmodule SchemaOrg.Product do"
       assert source =~ "def new, do: %__MODULE__{}"
-      assert source =~ "def name(%__MODULE__{} = thing, value) do"
-      assert source =~ "def offers(%__MODULE__{} = thing, value) do"
+      assert source =~ ":name"
+      assert source =~ ":offers"
       assert source =~ ~s(def __schema_org__, do: %{type: "Product")
       # camelCase JSON key is preserved in the field→key map
       assert source =~ ~s(name: "name")
+      # ADR-002: per-property setter functions are no longer generated
+      refute source =~ "= thing, value"
     end
 
     test "the generated source is valid, parseable Elixir", %{

@@ -11,10 +11,10 @@
 
 ## Overview
 
-Generate a strictly-typed, pipe-friendly Elixir API for Schema.org from the
-official JSON-LD vocabulary. Two layers: a maintainer-only build task that emits
-one committed struct module per Class, and a hand-written runtime serialiser that
-turns those structs into JSON-LD. The guiding goal is Developer Experience — a
+Generate a strictly-typed Elixir API for Schema.org from the official JSON-LD
+vocabulary. Two layers: a maintainer-only build task that emits one committed
+struct module per Class (built with struct literals, ADR-002), and a hand-written
+runtime serialiser that turns those structs into JSON-LD. The guiding goal is Developer Experience — a
 developer should never need to consult the Schema.org website.
 
 ## Architecture Decisions
@@ -22,9 +22,11 @@ developer should never need to consult the Schema.org website.
 - **Build-time generation, committed as artifacts; no compile-time graph
   parsing.** See [ADR-001](../decisions/ADR-001-build-time-codegen-committed-artifacts.md).
 - **Flatten direct + inherited properties into each struct** so auto-complete is
-  complete with zero runtime ancestor lookups. *(This decision is the cause of
-  the large module surface and is under active review; its ADR — ADR-002 — will
-  be written as the outcome of the packaging/surface discussion.)*
+  complete with zero runtime ancestor lookups.
+- **Build via struct literals, not per-property pipe setters.** The flattened
+  setters were the dominant compile/footprint cost (65k functions → 312 MB BEAM);
+  removing them cut the footprint to ~20 MB while keeping field auto-complete. See
+  [ADR-002](../decisions/ADR-002-struct-literal-api-over-pipe-setters.md).
 - **One module per file**, since Elixir cannot cleanly nest many modules.
 - **Runtime kept dependency-light:** `:jason` only; `:ex_doc` dev-only.
 
@@ -113,13 +115,16 @@ contract.
 
 | Risk | Impact | Mitigation |
 |------|--------|------------|
-| Large module count slows consumer compiles | High | Tracked for ADR-002; packaging/surface-reduction discussion underway |
+| Flattened per-property setters bloat compile/BEAM | High | Resolved by ADR-002 — struct-literal API, no setters (312 MB → 20 MB) |
+| Module *count* (1000+) slows clean compiles | Med | Accepted; count is kept for `SchemaOrg.<complete>` discovery. Tiered/on-demand packaging is a candidate future spec, not v0.1 |
 | Schema.org vocab drift on re-generation | Med | Deterministic sorted output → reviewable diff before commit |
 | Template / runtime `__schema_org__/0` contract drift | Med | Round-trip test exercises the contract end-to-end |
 | `String.to_atom/1` memory leak | Low | Atomise only the bounded vendored property set in the build task; never runtime user values |
 
 ## Open Questions
 
-- How should consumers avoid paying compile cost for types they don't use?
-  (Subject of the separate packaging discussion → ADR-002.)
+- Should consumers be able to avoid the clean-compile cost of types they don't
+  use (tiered/curated default + on-demand generation)? Candidate future spec; the
+  per-function cost is already resolved by ADR-002, so this is now only about the
+  module *count*.
 - Should `rangeIncludes` value-type validation become a follow-up spec?
