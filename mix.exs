@@ -1,7 +1,7 @@
 defmodule SchemaOrg.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.2.0"
   @source_url "https://github.com/mike-kostov/schema_org"
 
   def project do
@@ -36,6 +36,10 @@ defmodule SchemaOrg.MixProject do
   defp deps do
     [
       {:jason, "~> 1.4"},
+      # Optional: only needed by the `SchemaOrg.HTML` Phoenix component, which is
+      # compiled solely when `Phoenix.Component` is available. Non-Phoenix
+      # consumers never pull this in.
+      {:phoenix_live_view, "~> 1.0", optional: true},
       {:ex_doc, "~> 0.34", only: :dev, runtime: false}
     ]
   end
@@ -54,14 +58,25 @@ defmodule SchemaOrg.MixProject do
       # Ship the runtime API + generated types only — not the maintainer-only
       # build task under lib/mix or the source graph.
       files:
-        ~w(lib/schema_org lib/schema_org.ex .formatter.exs mix.exs README.md CHANGELOG.md LICENSE)
+        ~w(lib/schema_org lib/schema_org.ex .formatter.exs mix.exs README.md CHANGELOG.md LICENSE) ++
+          ~w(guides)
     ]
   end
 
   defp docs do
     [
       main: "readme",
-      extras: ["README.md", "CHANGELOG.md"],
+      extras: [
+        "README.md",
+        "CHANGELOG.md",
+        "guides/ecommerce-product.md",
+        "guides/blog-home.md",
+        "guides/blog-article.md",
+        "guides/article-with-video.md",
+        "guides/article-with-audio.md",
+        "guides/landing-page.md"
+      ],
+      groups_for_extras: [Guides: ~r"guides/.*"],
       source_ref: "v#{@version}"
     ]
   end

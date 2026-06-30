@@ -76,4 +76,37 @@ defmodule SchemaOrgTest do
     assert product.description == "A thing"
     assert product.url == "https://example.com"
   end
+
+  test "to_script_tag/1 wraps html-safe JSON-LD that decodes back correctly" do
+    tag = SchemaOrg.to_script_tag(%Product{name: "X"})
+
+    assert String.starts_with?(tag, ~s(<script type="application/ld+json">))
+    assert String.ends_with?(tag, "</script>")
+
+    json =
+      tag
+      |> String.replace_prefix(~s(<script type="application/ld+json">), "")
+      |> String.replace_suffix("</script>", "")
+
+    assert Jason.decode!(json) == %{
+             "@context" => "https://schema.org",
+             "@type" => "Product",
+             "name" => "X"
+           }
+  end
+
+  test "to_script_tag/1 escapes </script> so a value cannot break out of the tag" do
+    tag = SchemaOrg.to_script_tag(%Product{name: "</script><script>alert(1)</script>"})
+
+    inner =
+      tag
+      |> String.replace_prefix(~s(<script type="application/ld+json">), "")
+      |> String.replace_suffix("</script>", "")
+
+    # no injected tags survive in the rendered markup ...
+    refute inner =~ "</script>"
+    refute inner =~ "<script>"
+    # ... yet the value still round-trips when parsed as JSON
+    assert Jason.decode!(inner)["name"] == "</script><script>alert(1)</script>"
+  end
 end

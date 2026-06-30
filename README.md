@@ -26,6 +26,44 @@ serialise it with `to_json_ld/1`.
 }
 ```
 
+For a page that describes several independent things at once, pass a **list** of
+structs — they are wrapped in a single top-level `@graph`:
+
+```elixir
+[%SchemaOrg.Organization{name: "Acme"}, %SchemaOrg.WebSite{name: "Acme"}]
+|> SchemaOrg.to_json_ld()
+#=> {"@context":"https://schema.org","@graph":[{...},{...}]}
+```
+
+## Guides
+
+Worked, copy-pasteable examples (each verified by `test/examples_test.exs`):
+
+- [E-commerce product page](https://github.com/mike-kostov/schema_org/blob/main/guides/ecommerce-product.md)
+- [Blog main page](https://github.com/mike-kostov/schema_org/blob/main/guides/blog-home.md)
+- [Single article](https://github.com/mike-kostov/schema_org/blob/main/guides/blog-article.md)
+- [Article with a video clip](https://github.com/mike-kostov/schema_org/blob/main/guides/article-with-video.md)
+- [Article with an audio clip](https://github.com/mike-kostov/schema_org/blob/main/guides/article-with-audio.md)
+- [Complex landing page (`@graph`)](https://github.com/mike-kostov/schema_org/blob/main/guides/landing-page.md)
+
+## Embedding in a page
+
+`to_script_tag/1` returns a complete, HTML-safe
+`<script type="application/ld+json">…</script>` string (a value containing
+`</script>` cannot break out). In Phoenix, the `SchemaOrg.HTML.json_ld/1`
+function component wraps it — compiled only when `:phoenix_live_view` is in your
+deps, so non-Phoenix apps never pull it in:
+
+```heex
+<SchemaOrg.HTML.json_ld data={@product} />
+```
+
+## Roadmap
+
+- **`@id` cross-node linking** — reference a shared entity by id within a
+  `@graph` instead of inlining it.
+- **`rangeIncludes` validation** / Google required-field checks.
+
 ## Quick Start
 
 ```bash
@@ -86,6 +124,8 @@ Current docs:
 - [`docs/plans/01-type-generation.md`](https://github.com/mike-kostov/schema_org/blob/main/docs/plans/01-type-generation.md) — Task-by-task breakdown for the above
 - [`docs/decisions/ADR-001-build-time-codegen-committed-artifacts.md`](https://github.com/mike-kostov/schema_org/blob/main/docs/decisions/ADR-001-build-time-codegen-committed-artifacts.md) — Build-time generation, committed as artifacts
 - [`docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md`](https://github.com/mike-kostov/schema_org/blob/main/docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md) — Struct-literal building API (performance)
+- [`docs/decisions/ADR-003-multi-node-graph-serialisation.md`](https://github.com/mike-kostov/schema_org/blob/main/docs/decisions/ADR-003-multi-node-graph-serialisation.md) — Multi-node `@graph` output
+- [`docs/decisions/ADR-004-html-embedding-optional-phoenix.md`](https://github.com/mike-kostov/schema_org/blob/main/docs/decisions/ADR-004-html-embedding-optional-phoenix.md) — `to_script_tag/1` + optional Phoenix component
 
 ## Schema.org in Plain Terms
 
