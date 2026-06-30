@@ -35,11 +35,11 @@ Initial release.
 
 - The only runtime dependency is `:jason`. The ~5 MB source graph is read **only**
   by the build task — never at the library's compile time. See
-  [ADR-001](docs/decisions/ADR-001-build-time-codegen-committed-artifacts.md).
+  [ADR-001](https://github.com/mike-kostov/schema_org/blob/main/docs/decisions/ADR-001-build-time-codegen-committed-artifacts.md).
 - The building API is **struct literals, not pipe setters** — a deliberate
   performance choice that cut the generated BEAM footprint from ~312 MB to ~20 MB
   and compile CPU by ~60%, while keeping full field auto-complete. See
-  [ADR-002](docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md).
+  [ADR-002](https://github.com/mike-kostov/schema_org/blob/main/docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md).
 - Out of scope for this release: `rangeIncludes` value-type validation, `@id`
   node linking, multi-language `@value` literals, and Phoenix view helpers.
 

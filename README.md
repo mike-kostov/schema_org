@@ -58,7 +58,7 @@ Two layers, one hand-written and one generated:
   is untyped, so it accepts Schema.org's loose value model directly (a scalar or
   a nested struct; a single value or a list). **Never edit these by hand** — they
   are produced by the code-generation task and overwritten on every run. (See
-  [ADR-002](docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md) for
+  [ADR-002](https://github.com/mike-kostov/schema_org/blob/main/docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md) for
   why building is struct-literal rather than pipe-setter based.)
 - **Code generation** (`lib/mix/tasks/schema_org.build_types.ex`) — a
   maintainer-only Mix task that ingests the official Schema.org JSON-LD graph
@@ -82,10 +82,10 @@ priv/schemaorg-current-https.jsonld ──▶ mix schema_org.build_types ──�
 
 Current docs:
 
-- [`docs/specs/01-type-generation.md`](docs/specs/01-type-generation.md) — Code-generation pipeline: JSON-LD parsing, EEx template, type module layout — **Implemented**
-- [`docs/plans/01-type-generation.md`](docs/plans/01-type-generation.md) — Task-by-task breakdown for the above
-- [`docs/decisions/ADR-001-build-time-codegen-committed-artifacts.md`](docs/decisions/ADR-001-build-time-codegen-committed-artifacts.md) — Build-time generation, committed as artifacts
-- [`docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md`](docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md) — Struct-literal building API (performance)
+- [`docs/specs/01-type-generation.md`](https://github.com/mike-kostov/schema_org/blob/main/docs/specs/01-type-generation.md) — Code-generation pipeline: JSON-LD parsing, EEx template, type module layout — **Implemented**
+- [`docs/plans/01-type-generation.md`](https://github.com/mike-kostov/schema_org/blob/main/docs/plans/01-type-generation.md) — Task-by-task breakdown for the above
+- [`docs/decisions/ADR-001-build-time-codegen-committed-artifacts.md`](https://github.com/mike-kostov/schema_org/blob/main/docs/decisions/ADR-001-build-time-codegen-committed-artifacts.md) — Build-time generation, committed as artifacts
+- [`docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md`](https://github.com/mike-kostov/schema_org/blob/main/docs/decisions/ADR-002-struct-literal-api-over-pipe-setters.md) — Struct-literal building API (performance)
 
 ## Schema.org in Plain Terms
 
