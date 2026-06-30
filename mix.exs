@@ -28,6 +28,11 @@ defmodule SchemaOrg.MixProject do
     ]
   end
 
+  # Run the `precommit` alias (and its `test` step) in the test environment.
+  def cli do
+    [preferred_envs: [precommit: :test]]
+  end
+
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
@@ -47,7 +52,9 @@ defmodule SchemaOrg.MixProject do
       maintainers: ["Mike Kostov"],
       licenses: ["MIT"],
       links: %{"GitHub" => @source_url},
-      files: ~w(lib priv/templates .formatter.exs mix.exs README.md LICENSE)
+      # Ship the runtime API + generated types only — not the maintainer-only
+      # build task under lib/mix or the source graph.
+      files: ~w(lib/schema_org lib/schema_org.ex .formatter.exs mix.exs README.md LICENSE)
     ]
   end
 

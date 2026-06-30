@@ -1,0 +1,18 @@
+defmodule SchemaOrg.<%= module_name %> do
+  @moduledoc <%= inspect(moduledoc, printable_limit: :infinity) %>
+
+  defstruct [<%= Enum.map_join(properties, ", ", fn p -> inspect(p.field) end) %>]
+
+  @json_keys %{<%= Enum.map_join(properties, ", ", fn p -> "#{p.func}: #{inspect(p.json_key)}" end) %>}
+
+  @doc false
+  def __schema_org__, do: %{type: <%= inspect(schema_type) %>, json_keys: @json_keys}
+
+  @doc "Builds an empty `SchemaOrg.<%= module_name %>` struct."
+  def new, do: %__MODULE__{}
+<%= for p <- properties do %>
+  @doc <%= inspect(p.doc, printable_limit: :infinity) %>
+  def <%= p.func %>(%__MODULE__{} = thing, value) do
+    %{thing | <%= p.func %>: value}
+  end
+<% end %>end
