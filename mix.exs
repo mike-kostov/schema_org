@@ -2,8 +2,7 @@ defmodule SchemaOrg.MixProject do
   use Mix.Project
 
   @version "0.1.0"
-  # NOTE: update this to your real GitHub handle before publishing.
-  @source_url "https://github.com/mikekostov/schema_org"
+  @source_url "https://github.com/mike-kostov/schema_org"
 
   def project do
     [
