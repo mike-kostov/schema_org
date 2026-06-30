@@ -1,9 +1,9 @@
 # Spec: Schema.org Type Generation
 
-**Status:** Draft
+**Status:** Implemented
 **Last updated:** 2026-06-30
-**Plan:** _to be written (`docs/plans/01-type-generation.md`)_
-**Related ADRs:** _none yet_
+**Plan:** [`docs/plans/01-type-generation.md`](../plans/01-type-generation.md)
+**Related ADRs:** [ADR-001](../decisions/ADR-001-build-time-codegen-committed-artifacts.md)
 
 ---
 

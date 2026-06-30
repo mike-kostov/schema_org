@@ -53,14 +53,15 @@ defmodule SchemaOrg.MixProject do
       links: %{"GitHub" => @source_url},
       # Ship the runtime API + generated types only — not the maintainer-only
       # build task under lib/mix or the source graph.
-      files: ~w(lib/schema_org lib/schema_org.ex .formatter.exs mix.exs README.md LICENSE)
+      files:
+        ~w(lib/schema_org lib/schema_org.ex .formatter.exs mix.exs README.md CHANGELOG.md LICENSE)
     ]
   end
 
   defp docs do
     [
       main: "readme",
-      extras: ["README.md"],
+      extras: ["README.md", "CHANGELOG.md"],
       source_ref: "v#{@version}"
     ]
   end
