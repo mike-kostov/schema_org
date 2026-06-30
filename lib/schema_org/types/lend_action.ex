@@ -1,5 +1,5 @@
 defmodule SchemaOrg.LendAction do
-  @moduledoc "The act of providing an object under an agreement that it will be returned at a later date. Reciprocal of BorrowAction.\\n\\nRelated actions:\\n\\n* [[BorrowAction]]: Reciprocal of LendAction."
+  @moduledoc "The act of providing an object under an agreement that it will be returned at a later date. Reciprocal of BorrowAction.\\n\\nRelated actions:\\n\\n* `BorrowAction`: Reciprocal of LendAction."
 
   defstruct [
     :action_process,

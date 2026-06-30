@@ -1,5 +1,5 @@
 defmodule SchemaOrg.DataDownload do
-  @moduledoc "All or part of a [[Dataset]] in downloadable form. "
+  @moduledoc "All or part of a `Dataset` in downloadable form."
 
   defstruct [
     :about,

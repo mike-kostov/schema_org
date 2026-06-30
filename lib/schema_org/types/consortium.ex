@@ -1,5 +1,5 @@
 defmodule SchemaOrg.Consortium do
-  @moduledoc "A Consortium is a membership [[Organization]] whose members are typically Organizations."
+  @moduledoc "A Consortium is a membership `Organization` whose members are typically Organizations."
 
   defstruct [
     :accepted_payment_method,

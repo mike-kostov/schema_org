@@ -1,5 +1,5 @@
 defmodule SchemaOrg.PostalCodeRangeSpecification do
-  @moduledoc "Indicates a range of postal codes, usually defined as the set of valid codes between [[postalCodeBegin]] and [[postalCodeEnd]], inclusively."
+  @moduledoc "Indicates a range of postal codes, usually defined as the set of valid codes between `postalCodeBegin` and `postalCodeEnd`, inclusively."
 
   defstruct [
     :additional_type,

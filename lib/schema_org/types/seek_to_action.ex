@@ -1,5 +1,5 @@
 defmodule SchemaOrg.SeekToAction do
-  @moduledoc "This is the [[Action]] of navigating to a specific [[startOffset]] timestamp within a [[VideoObject]], typically represented with a URL template structure."
+  @moduledoc "This is the `Action` of navigating to a specific `startOffset` timestamp within a `VideoObject`, typically represented with a URL template structure."
 
   defstruct [
     :action_process,

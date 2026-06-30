@@ -1,5 +1,5 @@
 defmodule SchemaOrg.ProfessionalService do
-  @moduledoc "Original definition: \"provider of professional services.\"\\n\\nThe general [[ProfessionalService]] type for local businesses was deprecated due to confusion with [[Service]]. For reference, the types that it included were: [[Dentist]],\n        [[AccountingService]], [[Attorney]], [[Notary]], as well as types for several kinds of [[HomeAndConstructionBusiness]]: [[Electrician]], [[GeneralContractor]],\n        [[HousePainter]], [[Locksmith]], [[Plumber]], [[RoofingContractor]]. [[LegalService]] was introduced as a more inclusive supertype of [[Attorney]]."
+  @moduledoc "Original definition: \"provider of professional services.\"\\n\\nThe general `ProfessionalService` type for local businesses was deprecated due to confusion with `Service`. For reference, the types that it included were: `Dentist`,\n        `AccountingService`, `Attorney`, `Notary`, as well as types for several kinds of `HomeAndConstructionBusiness`: `Electrician`, `GeneralContractor`,\n        `HousePainter`, `Locksmith`, `Plumber`, `RoofingContractor`. `LegalService` was introduced as a more inclusive supertype of `Attorney`."
 
   defstruct [
     :accepted_payment_method,

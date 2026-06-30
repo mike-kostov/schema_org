@@ -1,5 +1,5 @@
 defmodule SchemaOrg.GameAvailabilityEnumeration do
-  @moduledoc "For a [[VideoGame]], such as used with a [[PlayGameAction]], an enumeration of the kind of game availability offered. "
+  @moduledoc "For a `VideoGame`, such as used with a `PlayGameAction`, an enumeration of the kind of game availability offered."
 
   defstruct [
     :additional_type,

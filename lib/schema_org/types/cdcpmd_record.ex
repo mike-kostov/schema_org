@@ -1,5 +1,5 @@
 defmodule SchemaOrg.CDCPMDRecord do
-  @moduledoc "A CDCPMDRecord is a data structure representing a record in a CDC tabular data format\n      used for hospital data reporting. See [documentation](/docs/cdc-covid.html) for details, and the linked CDC materials for authoritative\n      definitions used as the source here.\n      "
+  @moduledoc "A CDCPMDRecord is a data structure representing a record in a CDC tabular data format\n      used for hospital data reporting. See [documentation](/docs/cdc-covid.html) for details, and the linked CDC materials for authoritative\n      definitions used as the source here."
 
   defstruct [
     :additional_type,

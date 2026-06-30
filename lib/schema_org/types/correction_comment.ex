@@ -1,5 +1,5 @@
 defmodule SchemaOrg.CorrectionComment do
-  @moduledoc "A [[comment]] that corrects [[CreativeWork]]."
+  @moduledoc "A `comment` that corrects `CreativeWork`."
 
   defstruct [
     :about,

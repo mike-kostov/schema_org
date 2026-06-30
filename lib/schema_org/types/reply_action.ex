@@ -1,5 +1,5 @@
 defmodule SchemaOrg.ReplyAction do
-  @moduledoc "The act of responding to a question/message asked/sent by the object. Related to [[AskAction]].\\n\\nRelated actions:\\n\\n* [[AskAction]]: Appears generally as an origin of a ReplyAction."
+  @moduledoc "The act of responding to a question/message asked/sent by the object. Related to `AskAction`.\\n\\nRelated actions:\\n\\n* `AskAction`: Appears generally as an origin of a ReplyAction."
 
   defstruct [
     :about,

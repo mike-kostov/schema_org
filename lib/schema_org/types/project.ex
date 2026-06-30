@@ -1,5 +1,5 @@
 defmodule SchemaOrg.Project do
-  @moduledoc "An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim.\nUse properties from [[Organization]], [[subOrganization]]/[[parentOrganization]] to indicate project sub-structures. \n   "
+  @moduledoc "An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim.\nUse properties from `Organization`, `subOrganization`/`parentOrganization` to indicate project sub-structures."
 
   defstruct [
     :accepted_payment_method,

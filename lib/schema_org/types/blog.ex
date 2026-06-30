@@ -1,5 +1,5 @@
 defmodule SchemaOrg.Blog do
-  @moduledoc "A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a \"weblog\". Note that the individual posts ([[BlogPosting]]s) in a [[Blog]] are often colloquially referred to by the same term."
+  @moduledoc "A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a \"weblog\". Note that the individual posts (`BlogPosting`s) in a `Blog` are often colloquially referred to by the same term."
 
   defstruct [
     :about,

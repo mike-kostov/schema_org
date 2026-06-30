@@ -1,5 +1,5 @@
 defmodule SchemaOrg.LiveBlogPosting do
-  @moduledoc "A [[LiveBlogPosting]] is a [[BlogPosting]] intended to provide a rolling textual coverage of an ongoing event through continuous updates."
+  @moduledoc "A `LiveBlogPosting` is a `BlogPosting` intended to provide a rolling textual coverage of an ongoing event through continuous updates."
 
   defstruct [
     :about,

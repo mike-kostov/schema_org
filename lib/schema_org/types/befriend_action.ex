@@ -1,5 +1,5 @@
 defmodule SchemaOrg.BefriendAction do
-  @moduledoc "The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.\\n\\nRelated actions:\\n\\n* [[FollowAction]]: Unlike FollowAction, BefriendAction implies that the connection is reciprocal."
+  @moduledoc "The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.\\n\\nRelated actions:\\n\\n* `FollowAction`: Unlike FollowAction, BefriendAction implies that the connection is reciprocal."
 
   defstruct [
     :action_process,

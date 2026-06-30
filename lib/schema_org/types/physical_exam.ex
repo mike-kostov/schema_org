@@ -1,5 +1,5 @@
 defmodule SchemaOrg.PhysicalExam do
-  @moduledoc "A type of physical examination of a patient performed by a physician. "
+  @moduledoc "A type of physical examination of a patient performed by a physician."
 
   defstruct [
     :additional_type,

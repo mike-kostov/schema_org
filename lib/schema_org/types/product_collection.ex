@@ -1,5 +1,5 @@
 defmodule SchemaOrg.ProductCollection do
-  @moduledoc "A set of products (either [[ProductGroup]]s or specific variants) that are listed together e.g. in an [[Offer]]."
+  @moduledoc "A set of products (either `ProductGroup`s or specific variants) that are listed together e.g. in an `Offer`."
 
   defstruct [
     :about,

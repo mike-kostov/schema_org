@@ -1,5 +1,5 @@
 defmodule SchemaOrg.AlignmentObject do
-  @moduledoc "An intangible item that describes an alignment between a learning resource and a node in an educational framework.\nShould not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency."
+  @moduledoc "An intangible item that describes an alignment between a learning resource and a node in an educational framework.\nShould not be used where the nature of the alignment can be described using a simple property, for example to express that a resource `teaches` or `assesses` a competency."
 
   defstruct [
     :additional_type,

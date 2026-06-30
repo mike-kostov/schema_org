@@ -1,5 +1,5 @@
 defmodule SchemaOrg.OfferForPurchase do
-  @moduledoc "An [[OfferForPurchase]] in Schema.org represents an [[Offer]] to sell something, i.e. an [[Offer]] whose\n  [[businessFunction]] is [sell](http://purl.org/goodrelations/v1#Sell.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for\n  background on the underlying concepts.\n  "
+  @moduledoc "An `OfferForPurchase` in Schema.org represents an `Offer` to sell something, i.e. an `Offer` whose\n  `businessFunction` is [sell](http://purl.org/goodrelations/v1#Sell.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for\n  background on the underlying concepts."
 
   defstruct [
     :accepted_payment_method,

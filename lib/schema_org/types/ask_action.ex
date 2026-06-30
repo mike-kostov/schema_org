@@ -1,5 +1,5 @@
 defmodule SchemaOrg.AskAction do
-  @moduledoc "The act of posing a question / favor to someone.\\n\\nRelated actions:\\n\\n* [[ReplyAction]]: Appears generally as a response to AskAction."
+  @moduledoc "The act of posing a question / favor to someone.\\n\\nRelated actions:\\n\\n* `ReplyAction`: Appears generally as a response to AskAction."
 
   defstruct [
     :about,

@@ -1,5 +1,5 @@
 defmodule SchemaOrg.QuantitativeValue do
-  @moduledoc " A point value or interval for product characteristics and other purposes."
+  @moduledoc "A point value or interval for product characteristics and other purposes."
 
   defstruct [
     :additional_property,

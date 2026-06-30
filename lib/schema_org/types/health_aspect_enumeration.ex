@@ -1,5 +1,5 @@
 defmodule SchemaOrg.HealthAspectEnumeration do
-  @moduledoc "HealthAspectEnumeration enumerates several aspects of health content online, each of which might be described using [[hasHealthAspect]] and [[HealthTopicContent]]."
+  @moduledoc "HealthAspectEnumeration enumerates several aspects of health content online, each of which might be described using `hasHealthAspect` and `HealthTopicContent`."
 
   defstruct [
     :additional_type,

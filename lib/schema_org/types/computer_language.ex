@@ -1,5 +1,5 @@
 defmodule SchemaOrg.ComputerLanguage do
-  @moduledoc "This type covers computer programming languages such as Scheme and Lisp, as well as other language-like computer representations. Natural languages are best represented with the [[Language]] type."
+  @moduledoc "This type covers computer programming languages such as Scheme and Lisp, as well as other language-like computer representations. Natural languages are best represented with the `Language` type."
 
   defstruct [
     :additional_type,

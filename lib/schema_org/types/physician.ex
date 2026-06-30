@@ -1,5 +1,5 @@
 defmodule SchemaOrg.Physician do
-  @moduledoc "An individual physician or a physician's office considered as a [[MedicalOrganization]]."
+  @moduledoc "An individual physician or a physician's office considered as a `MedicalOrganization`."
 
   defstruct [
     :accepted_payment_method,

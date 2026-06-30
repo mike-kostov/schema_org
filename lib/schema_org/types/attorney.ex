@@ -1,5 +1,5 @@
 defmodule SchemaOrg.Attorney do
-  @moduledoc "Professional service: Attorney. \\n\\nThis type is deprecated - [[LegalService]] is more inclusive and less ambiguous."
+  @moduledoc "Professional service: Attorney. \\n\\nThis type is deprecated - `LegalService` is more inclusive and less ambiguous."
 
   defstruct [
     :accepted_payment_method,

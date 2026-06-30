@@ -1,5 +1,5 @@
 defmodule SchemaOrg.ConfirmAction do
-  @moduledoc "The act of notifying someone that a future event/action is going to happen as expected.\\n\\nRelated actions:\\n\\n* [[CancelAction]]: The antonym of ConfirmAction."
+  @moduledoc "The act of notifying someone that a future event/action is going to happen as expected.\\n\\nRelated actions:\\n\\n* `CancelAction`: The antonym of ConfirmAction."
 
   defstruct [
     :about,

@@ -121,6 +121,28 @@ defmodule Mix.Tasks.SchemaOrg.BuildTypesTest do
     end
   end
 
+  describe "comment_text/1 — HTML/wiki markup cleaning" do
+    test "converts links, code, breaks and [[refs]] to Markdown and strips stray tags" do
+      raw =
+        ~s(<p>See <a href="https://x.com">the site</a> and <code>Foo</code>.</p>\n\n<p>Uses [[name]].)
+
+      cleaned = Build.comment_text(raw)
+
+      assert cleaned =~ "[the site](https://x.com)"
+      assert cleaned =~ "`Foo`"
+      assert cleaned =~ "`name`"
+      # no raw HTML tags survive (the unbalanced <p> that broke ExDoc is gone)
+      refute cleaned =~ ~r/<[^>]+>/
+      refute cleaned =~ "[["
+    end
+
+    test "normalises through the @value and list shapes too" do
+      assert Build.comment_text(%{"@value" => "<p>hi</p>"}) == "hi"
+      assert Build.comment_text([%{"@value" => "<br/>x"}, "ignored"]) == "x"
+      assert Build.comment_text(nil) == ""
+    end
+  end
+
   describe "render_module/2 — EEx generation" do
     setup do
       template = File.read!("priv/templates/type.ex.eex")

@@ -1,5 +1,5 @@
 defmodule SchemaOrg.ReserveAction do
-  @moduledoc "Reserving a concrete object.\\n\\nRelated actions:\\n\\n* [[ScheduleAction]]: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation."
+  @moduledoc "Reserving a concrete object.\\n\\nRelated actions:\\n\\n* `ScheduleAction`: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation."
 
   defstruct [
     :action_process,

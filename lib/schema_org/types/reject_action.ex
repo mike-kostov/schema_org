@@ -1,5 +1,5 @@
 defmodule SchemaOrg.RejectAction do
-  @moduledoc "The act of rejecting to/adopting an object.\\n\\nRelated actions:\\n\\n* [[AcceptAction]]: The antonym of RejectAction."
+  @moduledoc "The act of rejecting to/adopting an object.\\n\\nRelated actions:\\n\\n* `AcceptAction`: The antonym of RejectAction."
 
   defstruct [
     :action_process,

@@ -1,5 +1,5 @@
 defmodule SchemaOrg.FindAction do
-  @moduledoc "The act of finding an object.\\n\\nRelated actions:\\n\\n* [[SearchAction]]: FindAction is generally lead by a SearchAction, but not necessarily."
+  @moduledoc "The act of finding an object.\\n\\nRelated actions:\\n\\n* `SearchAction`: FindAction is generally lead by a SearchAction, but not necessarily."
 
   defstruct [
     :action_process,

@@ -1,5 +1,5 @@
 defmodule SchemaOrg.MeasurementMethodEnum do
-  @moduledoc "Enumeration(s) for use with [[measurementMethod]]."
+  @moduledoc "Enumeration(s) for use with `measurementMethod`."
 
   defstruct [
     :additional_type,

@@ -1,5 +1,5 @@
 defmodule SchemaOrg.RealEstateListing do
-  @moduledoc "A [[RealEstateListing]] is a listing that describes one or more real-estate [[Offer]]s (whose [[businessFunction]] is typically to lease out, or to sell).\n  The [[RealEstateListing]] type itself represents the overall listing, as manifested in some [[WebPage]].\n  "
+  @moduledoc "A `RealEstateListing` is a listing that describes one or more real-estate `Offer`s (whose `businessFunction` is typically to lease out, or to sell).\n  The `RealEstateListing` type itself represents the overall listing, as manifested in some `WebPage`."
 
   defstruct [
     :about,

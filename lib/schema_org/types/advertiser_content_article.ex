@@ -1,5 +1,5 @@
 defmodule SchemaOrg.AdvertiserContentArticle do
-  @moduledoc "An [[Article]] that an external entity has paid to place or to produce to its specifications. Includes [advertorials](https://en.wikipedia.org/wiki/Advertorial), sponsored content, native advertising and other paid content."
+  @moduledoc "An `Article` that an external entity has paid to place or to produce to its specifications. Includes [advertorials](https://en.wikipedia.org/wiki/Advertorial), sponsored content, native advertising and other paid content."
 
   defstruct [
     :about,

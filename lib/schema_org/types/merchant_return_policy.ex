@@ -1,5 +1,5 @@
 defmodule SchemaOrg.MerchantReturnPolicy do
-  @moduledoc "A MerchantReturnPolicy provides information about product return policies associated with an [[Organization]], [[Product]], or [[Offer]]."
+  @moduledoc "A MerchantReturnPolicy provides information about product return policies associated with an `Organization`, `Product`, or `Offer`."
 
   defstruct [
     :additional_property,

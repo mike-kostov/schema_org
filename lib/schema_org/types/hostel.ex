@@ -1,5 +1,5 @@
 defmodule SchemaOrg.Hostel do
-  @moduledoc "A hostel - cheap accommodation, often in shared dormitories.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n"
+  @moduledoc "A hostel - cheap accommodation, often in shared dormitories.\n\nSee also the [dedicated document on the use of schema.org for marking up hotels and other forms of accommodations](/docs/hotels.html)."
 
   defstruct [
     :accepted_payment_method,

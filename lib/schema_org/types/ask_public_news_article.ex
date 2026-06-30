@@ -1,5 +1,5 @@
 defmodule SchemaOrg.AskPublicNewsArticle do
-  @moduledoc "A [[NewsArticle]] expressing an open call by a [[NewsMediaOrganization]] asking the public for input, insights, clarifications, anecdotes, documentation, etc., on an issue, for reporting purposes."
+  @moduledoc "A `NewsArticle` expressing an open call by a `NewsMediaOrganization` asking the public for input, insights, clarifications, anecdotes, documentation, etc., on an issue, for reporting purposes."
 
   defstruct [
     :about,

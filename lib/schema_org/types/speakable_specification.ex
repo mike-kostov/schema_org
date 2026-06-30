@@ -1,5 +1,5 @@
 defmodule SchemaOrg.SpeakableSpecification do
-  @moduledoc "A SpeakableSpecification indicates (typically via [[xpath]] or [[cssSelector]]) sections of a document that are highlighted as particularly [[speakable]]. Instances of this type are expected to be used primarily as values of the [[speakable]] property."
+  @moduledoc "A SpeakableSpecification indicates (typically via `xpath` or `cssSelector`) sections of a document that are highlighted as particularly `speakable`. Instances of this type are expected to be used primarily as values of the `speakable` property."
 
   defstruct [
     :additional_type,

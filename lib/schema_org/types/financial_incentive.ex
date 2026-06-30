@@ -1,5 +1,5 @@
 defmodule SchemaOrg.FinancialIncentive do
-  @moduledoc "<p>Represents financial incentives for goods/services offered by an organization (or individual).</p>\n\n<p>Typically contains the [[name]] of the incentive, the [[incentivizedItem]], the [[incentiveAmount]], the [[incentiveStatus]], [[incentiveType]], the [[provider]] of the incentive, and [[eligibleWithSupplier]].</p>\n\n<p>Optionally contains criteria on whether the incentive is limited based on [[purchaseType]], [[purchasePriceLimit]], [[incomeLimit]], and the [[qualifiedExpense]].\n    "
+  @moduledoc "Represents financial incentives for goods/services offered by an organization (or individual).\n\nTypically contains the `name` of the incentive, the `incentivizedItem`, the `incentiveAmount`, the `incentiveStatus`, `incentiveType`, the `provider` of the incentive, and `eligibleWithSupplier`.\n\nOptionally contains criteria on whether the incentive is limited based on `purchaseType`, `purchasePriceLimit`, `incomeLimit`, and the `qualifiedExpense`."
 
   defstruct [
     :additional_type,

@@ -1,5 +1,5 @@
 defmodule SchemaOrg.OccupationalExperienceRequirements do
-  @moduledoc "Indicates employment-related experience requirements, e.g. [[monthsOfExperience]]."
+  @moduledoc "Indicates employment-related experience requirements, e.g. `monthsOfExperience`."
 
   defstruct [
     :additional_type,

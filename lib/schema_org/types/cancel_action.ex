@@ -1,5 +1,5 @@
 defmodule SchemaOrg.CancelAction do
-  @moduledoc "The act of asserting that a future event/action is no longer going to happen.\\n\\nRelated actions:\\n\\n* [[ConfirmAction]]: The antonym of CancelAction."
+  @moduledoc "The act of asserting that a future event/action is no longer going to happen.\\n\\nRelated actions:\\n\\n* `ConfirmAction`: The antonym of CancelAction."
 
   defstruct [
     :action_process,

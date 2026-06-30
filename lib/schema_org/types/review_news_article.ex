@@ -1,5 +1,5 @@
 defmodule SchemaOrg.ReviewNewsArticle do
-  @moduledoc "A [[NewsArticle]] and [[CriticReview]] providing a professional critic's assessment of a service, product, performance, or artistic or literary work."
+  @moduledoc "A `NewsArticle` and `CriticReview` providing a professional critic's assessment of a service, product, performance, or artistic or literary work."
 
   defstruct [
     :about,

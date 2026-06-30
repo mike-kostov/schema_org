@@ -1,5 +1,5 @@
 defmodule SchemaOrg.OfferForLease do
-  @moduledoc "An [[OfferForLease]] in Schema.org represents an [[Offer]] to lease out something, i.e. an [[Offer]] whose\n  [[businessFunction]] is [lease out](http://purl.org/goodrelations/v1#LeaseOut.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for\n  background on the underlying concepts.\n  "
+  @moduledoc "An `OfferForLease` in Schema.org represents an `Offer` to lease out something, i.e. an `Offer` whose\n  `businessFunction` is [lease out](http://purl.org/goodrelations/v1#LeaseOut.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for\n  background on the underlying concepts."
 
   defstruct [
     :accepted_payment_method,

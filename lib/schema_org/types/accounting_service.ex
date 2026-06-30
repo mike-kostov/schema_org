@@ -1,5 +1,5 @@
 defmodule SchemaOrg.AccountingService do
-  @moduledoc "Accountancy business.\\n\\nAs a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s).\n      "
+  @moduledoc "Accountancy business.\\n\\nAs a `LocalBusiness` it can be described as a `provider` of one or more `Service`\\(s)."
 
   defstruct [
     :accepted_payment_method,

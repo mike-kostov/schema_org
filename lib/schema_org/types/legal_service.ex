@@ -1,5 +1,5 @@
 defmodule SchemaOrg.LegalService do
-  @moduledoc "A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.\\n\\nAs a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s)."
+  @moduledoc "A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.\\n\\nAs a `LocalBusiness` it can be described as a `provider` of one or more `Service`\\(s)."
 
   defstruct [
     :accepted_payment_method,

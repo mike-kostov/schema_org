@@ -1,5 +1,5 @@
 defmodule SchemaOrg.HotelRoom do
-  @moduledoc "A hotel room is a single room in a hotel.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.\n"
+  @moduledoc "A hotel room is a single room in a hotel.\n\nSee also the [dedicated document on the use of schema.org for marking up hotels and other forms of accommodations](/docs/hotels.html)."
 
   defstruct [
     :accommodation_category,

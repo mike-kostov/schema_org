@@ -1,5 +1,5 @@
 defmodule SchemaOrg.LibrarySystem do
-  @moduledoc "A [[LibrarySystem]] is a collaborative system amongst several libraries."
+  @moduledoc "A `LibrarySystem` is a collaborative system amongst several libraries."
 
   defstruct [
     :accepted_payment_method,

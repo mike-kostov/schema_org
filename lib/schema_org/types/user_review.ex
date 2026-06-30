@@ -1,5 +1,5 @@
 defmodule SchemaOrg.UserReview do
-  @moduledoc "A review created by an end-user (e.g. consumer, purchaser, attendee etc.), in contrast with [[CriticReview]]."
+  @moduledoc "A review created by an end-user (e.g. consumer, purchaser, attendee etc.), in contrast with `CriticReview`."
 
   defstruct [
     :about,

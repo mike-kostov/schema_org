@@ -219,12 +219,32 @@ defmodule Mix.Tasks.SchemaOrg.BuildTypes do
     }
   end
 
-  @doc "Normalises an `rdfs:comment` (string, list, or `@value` map) to plain text."
+  @doc """
+  Normalises an `rdfs:comment` (string, list, or `@value` map) to clean Markdown.
+
+  Schema.org comments embed raw HTML (`<p>`, `<br/>`, `<a href>`, `<code>`) and
+  `[[wiki]]` cross-references. Left as-is they render badly — and an unbalanced
+  tag makes ExDoc emit "Failed to find closing <p>". This converts the useful
+  markup to Markdown and strips the rest so generated `@moduledoc`s are clean.
+  """
   def comment_text(nil), do: ""
-  def comment_text(text) when is_binary(text), do: text
-  def comment_text(%{"@value" => value}), do: value
+  def comment_text(text) when is_binary(text), do: clean_comment(text)
+  def comment_text(%{"@value" => value}), do: comment_text(value)
   def comment_text([first | _]), do: comment_text(first)
   def comment_text(_), do: ""
+
+  # Raw Schema.org HTML/wiki markup -> Markdown. Order matters: convert the tags
+  # we want to keep before the catch-all strip removes everything else.
+  defp clean_comment(text) do
+    text
+    |> String.replace(~r/<a\b[^>]*\bhref="([^"]*)"[^>]*>(.*?)<\/a>/s, "[\\2](\\1)")
+    |> String.replace(~r/<\/?code>/, "`")
+    |> String.replace(~r/<br\s*\/?>/, "\n")
+    |> String.replace(~r/<[^>]+>/, "")
+    |> String.replace(~r/\[\[([^\]]+)\]\]/, "`\\1`")
+    |> String.replace(~r/\n{3,}/, "\n\n")
+    |> String.trim()
+  end
 
   defp doc_text("", local), do: "Sets the Schema.org `#{local}` property."
   defp doc_text(comment, local), do: "Sets the Schema.org `#{local}` property.\n\n#{comment}"

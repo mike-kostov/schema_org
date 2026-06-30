@@ -1,5 +1,5 @@
 defmodule SchemaOrg.IndividualPhysician do
-  @moduledoc "An individual medical practitioner. For their official address use [[address]], for affiliations to hospitals use [[hospitalAffiliation]]. \nThe [[practicesAt]] property can be used to indicate [[MedicalOrganization]] hospitals, clinics, pharmacies etc. where this physician practices."
+  @moduledoc "An individual medical practitioner. For their official address use `address`, for affiliations to hospitals use `hospitalAffiliation`. \nThe `practicesAt` property can be used to indicate `MedicalOrganization` hospitals, clinics, pharmacies etc. where this physician practices."
 
   defstruct [
     :accepted_payment_method,
