@@ -83,7 +83,7 @@ defmodule SchemaOrg.MixProject do
 
   defp aliases do
     [
-      precommit: ["format --check-formatted", "compile --warnings-as-errors", "test"]
+      precommit: ["hex.audit", "format --check-formatted", "compile --warnings-as-errors", "test"]
     ]
   end
 end
